@@ -1,0 +1,20 @@
+LoadAddOn("Blizzard_ArenaUI")
+
+ArenaEnemyFrame1:ClearAllPoints()
+ArenaEnemyFrame2:ClearAllPoints()
+ArenaEnemyFrame3:ClearAllPoints()
+ArenaEnemyFrame4:ClearAllPoints()
+ArenaEnemyFrame5:ClearAllPoints()
+
+ArenaEnemyFrame1:SetPoint("CENTER",UIParent,"CENTER",350,50)
+ArenaEnemyFrame2:SetPoint("CENTER",UIParent,"CENTER",350,0)
+ArenaEnemyFrame3:SetPoint("CENTER",UIParent,"CENTER",350,-50)
+ArenaEnemyFrame4:SetPoint("CENTER",UIParent,"CENTER",350,-100)
+ArenaEnemyFrame5:SetPoint("CENTER",UIParent,"CENTER",350,-150)
+
+ArenaEnemyFrame1.SetPoint = function() end
+ArenaEnemyFrame2.SetPoint = function() end
+ArenaEnemyFrame3.SetPoint = function() end
+ArenaEnemyFrame4.SetPoint = function() end
+ArenaEnemyFrame5.SetPoint = function() end
+
