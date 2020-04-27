@@ -1,0 +1,23 @@
+addon code:
+
+hooksecurefunc("UnitFramePortrait_Update",function(self)
+        if self.portrait then
+                if UnitIsPlayer(self.unit) then                         
+                        local t = CLASS_ICON_TCOORDS[select(2, UnitClass(self.unit))]
+                        if t then
+                                self.portrait:SetTexture("Interface\\TargetingFrame\\UI-Classes-Circles")
+                                self.portrait:SetTexCoord(unpack(t))
+                        end
+                else
+                        self.portrait:SetTexCoord(0,1,0,1)
+                end
+        end
+end)
+
+
+
+Script for macros
+
+/run UFP="UnitFramePortrait_Update" UICC="Interface\\TargetingFrame\\UI-Classes-Circles" CIT=CLASS_ICON_TCOORDS UC=UnitClass
+
+/run hooksecurefunc(UFP,function(self) if self.portrait then t=CIT[select(2,UC(self.unit))] if t and UnitIsPlayer(self.unit) then self.portrait:SetTexture(UICC) self.portrait:SetTexCoord(unpack(t)) else self.portrait:SetTexCoord(0,1,0,1) end end end)
