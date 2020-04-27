@@ -1,0 +1,21 @@
+Player:
+
+CastingBarFrame:ClearAllPoints()
+CastingBarFrame:SetPoint("CENTER",UIParent,"CENTER", 0, -235)
+CastingBarFrame.SetPoint = function() end
+CastingBarFrame:SetScale(1.0)
+
+Target:
+
+TargetFrameSpellBar:ClearAllPoints()
+TargetFrameSpellBar:SetPoint("CENTER", UIParent, "CENTER", 0, -140)
+TargetFrameSpellBar.SetPoint = function() end
+TargetFrameSpellBar:SetScale(1.0)
+
+Focus:
+
+TargetFrameSpellBar:ClearAllPoints()
+TargetFrameSpellBar:SetPoint("BOTTOM", TargetFrame, "TOP", -15, 0)
+TargetFrameSpellBar.SetPoint = function() end
+
+Modify the numbers to suit taste
