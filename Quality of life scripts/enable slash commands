@@ -1,0 +1,16 @@
+SlashCmdList["CLCE"] = function() CombatLogClearEntries() end
+SLASH_CLCE1 = "/clc"
+
+SlashCmdList["TICKET"] = function() ToggleHelpFrame() end
+SLASH_TICKET1 = "/gm"
+
+SlashCmdList["READYCHECK"] = function() DoReadyCheck() end
+SLASH_READYCHECK1 = '/rc'
+
+SlashCmdList["CHECKROLE"] = function() InitiateRolePoll() end
+SLASH_CHECKROLE1 = '/cr'
+
+- /clc to clear combat log
+- /gm to open a GM ticket
+- /rc for readycheck
+- /cr for check role 
