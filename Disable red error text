@@ -1,0 +1,8 @@
+addon code:
+UIErrorsFrame:SetAlpha(0)
+
+script:
+/run UIErrorsFrame:Clear()
+
+As tip, the script will only clear the red error text after it popped when you press the macro. So it is best to use it in macros
+with your priority spell rotation. The script won't prevent red error text from showing up. 
