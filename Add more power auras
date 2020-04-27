@@ -1,0 +1,74 @@
+local frame = CreateFrame("FRAME")
+frame:RegisterEvent("UNIT_AURA")
+
+frame:SetScript("OnEvent", function(self, event, ...)
+        local unitid = ... if unitid ~= "player" then return end
+
+        if UnitBuff("player", "Eradication") then
+                SpellActivationOverlay_ShowOverlay(SpellActivationOverlayFrame, 64371, "TEXTURES\\SPELLACTIVATIONOVERLAYS\\GENERICTOP_01.BLP", "TOP", 1.2, 139, 65, 239, false, false)
+        else
+                SpellActivationOverlay_HideOverlays(SpellActivationOverlayFrame, 64371)
+        end
+
+
+// First, change "Eradication" to whatever you need. (Use the locale/language you actually play on.)
+
+Next, here's how you configure this whole thing:
+SpellActivationOverlay_ShowOverlay(self, spellID, texturePath, location, scale, r, g, b, info.vFlip, info.hFlip)
+It's all pretty self-explanatory. Keep the first argument as it is in the script above, everything else you can change/edit as you wish to. The last two arguments are vertical and horizontal flips, "r, g, b" are red/green/blue color codes (0-255).
+
+To get the spellID, find your spell/aura on wowhead and look at the address bar. The number is the spellID. Keep in mind you need the spellID of the buff, not the spell that triggers it - they are sometimes different.
+
+Textures created for the default UI and available in the game files: //
+arcane_missiles.blp
+art_of_war.blp
+backlash.blp
+berserk.blp
+blood_boil.blp
+blood_surge.blp
+brain_freeze.blp
+dark_transformation.blp
+daybreak.blp
+denounce.blp
+eclipse_moon.blp
+eclipse_sun.blp
+feral_omenofclarity.blp
+focus_fire.blp
+frozen_fingers.blp
+fulmination.blp
+fury_of_stormrage.blp
+genericarc_01.blp
+genericarc_02.blp
+genericarc_03.blp
+genericarc_04.blp
+genericarc_05.blp
+genericarc_06.blp
+generictop_01.blp
+generictop_02.blp
+grand_crusader.blp
+hand_of_light.blp
+hot_streak.blp
+imp_empowerment.blp
+impact.blp
+killing_machine.blp
+lock_and_load.blp
+maelstrom_weapon.blp
+master_marksman.blp
+molten_core.blp
+natures_grace.blp
+necropolis.blp
+nightfall.blp
+rime.blp
+serendipity.blp
+shooting_stars.blp
+slice_and_dice.blp
+spellactivationoverlay_0.blp -- this is just the WoW icon from beta
+sudden_death.blp
+sudden_doom.blp
+surge_of_light.blp
+sword_and_board.blp
+
+// Just change the last part of the texture path provided in the example above to any of these.
+
+If that's not enough, you can always steal a file from Power Auras or other addons. To specify an external texture: "Interface\\AddOns\\YourAddon\\yourtexture.tga" - you can use .tga files; in general, you can use any texture/picture available to the game (anything in the game files and anything in addon folders). //
+
