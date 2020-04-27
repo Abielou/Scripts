@@ -18,3 +18,18 @@ ArenaEnemyFrame3.SetPoint = function() end
 ArenaEnemyFrame4.SetPoint = function() end
 ArenaEnemyFrame5.SetPoint = function() end
 
+
+
+Scale:
+
+ArenaEnemyFrames:SetScale(1.3)
+
+To scale separately:
+
+for i=1, 5 do
+        _G["ArenaEnemyFrame"..i]:SetScale(1.3)
+        _G["ArenaEnemyFrame"..i.."CastingBar"]:SetScale(1.3)
+        -- _G["ArenaEnemyFrame"..i.."CastingBar"]:SetPoint("RIGHT", 95, 0)
+end
+
+The above should be after LoadAddOn("Blizzard_ArenaUI")
