@@ -1,0 +1,25 @@
+addon code:
+
+hooksecurefunc("TargetFrame_UpdateAuras", function(s)
+        for i = 1, MAX_TARGET_BUFFS do
+                _, _, ic, _, dT = UnitBuff(s.unit, i)
+                if(ic and (not s.maxBuffs or i<=s.maxBuffs)) then
+                        fS=_G[s:GetName()..'Buff'..i..'Stealable']
+                        if(UnitIsEnemy(PlayerFrame.unit, s.unit) and dT=='Magic') then
+                                fS:Show()
+                        else
+                                fS:Hide()
+                        end
+                end
+        end
+end)
+
+
+Script macro for buffs:
+
+/run b = 'Buff' st = 'Stealable' mM = 'Magic' mB = maxBuffs TFUA = 'TargetFrame_UpdateAuras' PFu = PlayerFrame.unit MTB = MAX_TARGET_BUFFS UB = UnitBuff UIE = UnitIsEnemy
+/run hooksecurefunc(TFUA,function(s) for i=1,MTB do _,_,ic,_,dT=UB(s.unit,i) if(ic and (not s.mB or i<=s.mB)) then fS=_G[s:GetName()..b..i..st] if (UIE(PFu,s.unit) and dT==mM) then fS:Show() else fS:Hide() end end end end)
+
+For enrage effects:
+/run b = 'Buff' st = 'Stealable' mM =" mB = maxBuffs TFUA = 'TargetFrame_UpdateAuras' PFu = PlayerFrame.unit MTB = MAX_TARGET_BUFFS UB = UnitBuff UIE = UnitIsEnemy
+/run hooksecurefunc(TFUA,function(s) for i=1,MTB do _,_,ic,_,dT=UB(s.unit,i) if(ic and (not s.mB or i<=s.mB)) then fS=_G[s:GetName()..b..i..st] if (UIE(PFu,s.unit) and dT==mM) then fS:Show() else fS:Hide() end end end end)
