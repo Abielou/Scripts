@@ -1,0 +1,10 @@
+hooksecurefunc("TextStatusBar_UpdateTextStringWithValues", function()
+        PlayerFrameHealthBar.TextString:SetText(AbbreviateLargeNumbers(UnitHealth("player")))
+        PlayerFrameManaBar.TextString:SetText(AbbreviateLargeNumbers(UnitMana("player")))
+
+        TargetFrameHealthBar.TextString:SetText(AbbreviateLargeNumbers(UnitHealth("target")))
+        TargetFrameManaBar.TextString:SetText(AbbreviateLargeNumbers(UnitMana("target")))
+
+        FocusFrameHealthBar.TextString:SetText(AbbreviateLargeNumbers(UnitHealth("focus")))
+        FocusFrameManaBar.TextString:SetText(AbbreviateLargeNumbers(UnitMana("focus")))
+end)
