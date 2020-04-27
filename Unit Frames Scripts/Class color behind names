@@ -1,0 +1,33 @@
+addon script:
+
+local frame = CreateFrame("FRAME")
+frame:RegisterEvent("GROUP_ROSTER_UPDATE")
+frame:RegisterEvent("PLAYER_TARGET_CHANGED")
+frame:RegisterEvent("PLAYER_FOCUS_CHANGED")
+frame:RegisterEvent("UNIT_FACTION")
+
+local function eventHandler(self, event, ...)
+        if UnitIsPlayer("target") then
+                c = RAID_CLASS_COLORS[select(2, UnitClass("target"))]
+                TargetFrameNameBackground:SetVertexColor(c.r, c.g, c.b)
+        end
+        if UnitIsPlayer("focus") then
+                c = RAID_CLASS_COLORS[select(2, UnitClass("focus"))]
+                FocusFrameNameBackground:SetVertexColor(c.r, c.g, c.b)
+        end
+end
+
+frame:SetScript("OnEvent", eventHandler)
+
+for _, BarTextures in pairs({TargetFrameNameBackground, FocusFrameNameBackground}) do
+        BarTextures:SetTexture("Interface\\TargetingFrame\\UI-StatusBar")
+end
+
+
+
+
+Script macro:
+
+/run UIP=UnitIsPlayer RCC=RAID_CLASS_COLORS UC=UnitClass TFNB=TargetFrameNameBackground FFNB=FocusFrameNameBackground
+/run f=CreateFrame("FRAME") f:RegisterEvent("PARTY_MEMBERS_CHANGED") f:RegisterEvent("PLAYER_TARGET_CHANGED") f:RegisterEvent("PLAYER_FOCUS_CHANGED") f:RegisterEvent("UNIT_FACTION")
+/run function e(self,event,...) if UIP("target") then c=RCC[select(2,UC("target"))] TFNB:SetVertexColor(c.r,c.g,c.b) end if UIP("focus") then c=RCC[select(2,UC("focus"))] FFNB:SetVertexColor(c.r,c.g,c.b) end end f:SetScript("OnEvent",e)
