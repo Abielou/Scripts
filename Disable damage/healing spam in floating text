@@ -1,0 +1,22 @@
+Script for addon:
+
+LoadAddOn("Blizzard_CombatText")
+
+COMBAT_TEXT_TYPE_INFO["PERIODIC_HEAL"] = {var = nil, show = nil}
+COMBAT_TEXT_TYPE_INFO["HEAL_CRIT"] = {var = nil, show = nil}
+COMBAT_TEXT_TYPE_INFO["HEAL"] = {var = nil, show = nil}
+COMBAT_TEXT_TYPE_INFO["PERIODIC_HEAL_ABSORB"] = {var = nil, show = nil}
+COMBAT_TEXT_TYPE_INFO["HEAL_CRIT_ABSORB"] = {var = nil, show = nil}
+COMBAT_TEXT_TYPE_INFO["HEAL_ABSORB"] = {var = nil, show = nil}
+
+COMBAT_TEXT_TYPE_INFO["DAMAGE_CRIT"] = {var = nil, show = nil}
+COMBAT_TEXT_TYPE_INFO["DAMAGE"] = {var = nil, show = nil}
+COMBAT_TEXT_TYPE_INFO["SPELL_DAMAGE_CRIT"] = {var = nil, show = nil}
+COMBAT_TEXT_TYPE_INFO["SPELL_DAMAGE"] = {var = nil, show = nil}
+
+
+Script for macro: 
+
+/run CTTI=COMBAT_TEXT_TYPE_INFO CTTI.PERIODIC_HEAL={var=nil,show=nil} CTTI.HEAL_CRIT={var=nil,show=nil} CTTI.HEAL={var=nil,show=nil} CTTI.PERIODIC_HEAL_ABSORB={var=nil,show=nil} CTTI.HEAL_CRIT_ABSORB={var=nil,show=nil} CTTI.HEAL_ABSORB={var=nil,show=nil}
+
+/run CTTI.DAMAGE_CRIT={var=nil,show=nil} CTTI.DAMAGE={var=nil,show=nil} CTTI.SPELL_DAMAGE_CRIT={var=nil,show=nil} CTTI.SPELL_DAMAGE={var=nil,show=nil}
