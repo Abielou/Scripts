@@ -1,0 +1,22 @@
+addon code:
+
+local function colour(statusbar, unit)
+        local _, class, c
+        if UnitIsPlayer(unit) and UnitIsConnected(unit) and unit == statusbar.unit and UnitClass(unit) then
+                _, class = UnitClass(unit)
+                c = CUSTOM_CLASS_COLORS and CUSTOM_CLASS_COLORS[class] or RAID_CLASS_COLORS[class]
+                statusbar:SetStatusBarColor(c.r, c.g, c.b)
+                PlayerFrameHealthBar:SetStatusBarColor(0,1,0)
+        end
+end
+
+hooksecurefunc("UnitFrameHealthBar_Update", colour)
+hooksecurefunc("HealthBar_OnValueChanged", function(self)
+        colour(self, self.unit)
+end)
+
+Script macros:
+
+/run UIP=UnitIsPlayer UIC=UnitIsConnected RCC=RAID_CLASS_COLORS PFHB=PlayerFrameHealthBar UC=UnitClass
+/run function colour(sb,unit) if UIP(unit) and UIC(unit) and unit==sb.unit and UC(unit) then _,cl=UC(unit) c=RAID_CLASS_COLORS[cl] sb:SetStatusBarColor(c.r,c.g,c.b) PFHB:SetStatusBarColor(0,1,0) end end
+/run hooksecurefunc("UnitFrameHealthBar_Update", colour) hooksecurefunc("HealthBar_OnValueChanged", function(self) colour(self, self.unit) end)
